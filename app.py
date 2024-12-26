@@ -1,13 +1,12 @@
 import streamlit as st
 
-# Configure the page before anything else
 st.set_page_config(
     page_title="HF Dataset Viewer",
     page_icon="🤗",
     layout="wide"
 )
 
-# Now import other dependencies
+
 import pandas as pd
 import numpy as np
 from datasets import load_dataset
@@ -293,7 +292,7 @@ class DatasetMetadataAnalyzer:
         
         # Configuration information
         if 'config' in metadata and metadata['config']:
-            st.subheader("Dataset Configuration")
+            st.subheader("Dataset Configuration [wip]")
             for key, value in metadata['config'].items():
                 st.write(f"- {key}: {value}")
         
@@ -333,7 +332,7 @@ def identify_category_columns(self, dataset):
     
 def display_category_explorer(self, dataset, category_columns):
     """Display interface for exploring dataset by categories."""
-    st.subheader("Explore by Category")
+    st.subheader("Explore by Category [wip]")
     
     if not category_columns:
         st.write("No suitable category columns found in this dataset.")
@@ -444,7 +443,10 @@ class EnhancedDatasetExplorer:
         except Exception as e:
             st.error(f"Error loading dataset '{dataset_name}': {str(e)}")
             return None, str(e)
+    """
+    This works for now, but not for all data sets. As I find more that have custom scripts, I will adapt the code below:
 
+    """
     def _handle_remote_code(self, dataset_name, config, split):
         """Handle datasets requiring trust_remote_code=True."""
         st.warning(
